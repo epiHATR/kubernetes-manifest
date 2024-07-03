@@ -1,0 +1,15 @@
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: argocd-server-tls
+#   namespace: argo
+# spec:
+#   secretName: argocd-server-tls
+#   issuerRef:
+#     name: letsencrypt-prod
+#     kind: ClusterIssuer
+#   commonName: hatr-argo-northeurope-v7dsf.northeurope.cloudapp.azure.com
+#   dnsNames:
+#   - hatr-argo-northeurope-v7dsf.northeurope.cloudapp.azure.com
+#   duration: 2160h
+#   renewBefore: 24h

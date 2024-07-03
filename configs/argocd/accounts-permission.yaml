@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: argo
+  name: argocd-accounts-permission
+  labels:
+    app.kubernetes.io/name: argocd-rbac-cm
+    app.kubernetes.io/part-of: argocd
+data:
+  policy.default: role:readonly
+  policy.csv: |
+    p, role:applications-admin, applications, get, */*, allow
+    p, role:applications-admin, applications, sync, */*, allow
+    p, role:applications-admin, applications, update, */*, allow
+    p, role:applications-admin, applications, delete, */*, allow
+    p, role:applications-admin, applications, action/apps/Deployment/restart, */*, allow
+   
+    p, role:applications-maintainer, applications, get, */*, allow
+    p, role:applications-maintainer, applications, sync, */*, allow
+    p, role:applications-maintainer, applications, action/apps/Deployment/restart, */*, allow
+    p, role:applications-viewer, applications, get, */*, allow
+    
+    g, administrator, role:applications-admin
+    g, maintainer, role:applications-maintainer
+    g, reader, role:applications-viewer
