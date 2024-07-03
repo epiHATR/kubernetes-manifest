@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: site-reliability-engineer-role-binding
+  namespace: saas-portal-dev
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: site-reliability-engineer
+subjects:
+  - kind: Group
+    namespace: saas-portal-dev
+    name: e1a0f0ea-8ab1-4de3-9ff5-12e1fc09f856
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: site-reliability-engineer-role-binding
+  namespace: saas-portal-prod
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: site-reliability-engineer
+subjects:
+  - kind: Group
+    namespace: saas-portal-prod
+    name: e1a0f0ea-8ab1-4de3-9ff5-12e1fc09f856

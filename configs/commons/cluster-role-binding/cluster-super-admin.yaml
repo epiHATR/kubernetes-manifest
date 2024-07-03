@@ -1,0 +1,11 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-super-admin-binding
+roleRef:
+  kind: ClusterRole
+  name: cluster-super-admin
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+  - kind: Group
+    name: 16925950-5ccc-4474-b2bf-4556052f70d0 # AKS_AAD_ADMINS AD group
