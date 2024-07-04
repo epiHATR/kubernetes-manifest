@@ -1,0 +1,8 @@
+# Each namespace stand for a subsystem, project, application running on the cluster
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: saas-portal-dev
+  labels:
+    name: saas-portal-dev
